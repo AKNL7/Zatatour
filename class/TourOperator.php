@@ -7,7 +7,9 @@ class tourOperator{
     private $gradeCount;
     private $gradeTotalprivate;
     private $ispreminum;
-    
+
+
+
 
 
 
