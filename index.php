@@ -1,3 +1,16 @@
+<?php 
+ require_once('./utils/autoload.php');
+ require_once('./utils/connexion.php');
+
+$newreview = new ReviewManager($bdd);
+var_dump ($newreview->showMessage());
+var_dump($newreview->showAuthor());
+var_dump($newreview->showOperatorId());
+
+ ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
