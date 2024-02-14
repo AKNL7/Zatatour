@@ -5,7 +5,7 @@ $user = "root";
 $password = "";
 
 try {
-    $database = new PDO ($db,$user,$password);
+    $bdd = new PDO ($db,$user,$password);
 } catch (Exception $message) {
     echo "il y a un souci <br>" . "<pre>$message</pre>";
 }

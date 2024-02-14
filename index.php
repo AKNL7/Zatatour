@@ -1,3 +1,21 @@
+<?php
+require_once('./utils/connexion.php');
+require_once('./utils/autoload.php');
+
+$newDestination = new DestinationManager($bdd);
+
+var_dump($newDestination);
+var_dump($newDestination->showDestinationPrice());
+
+
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +26,7 @@
 <body>
     <header>
         <h1>
-            zatatour World
+            Zatatour World
         </h1>
     </header>
     <section>
