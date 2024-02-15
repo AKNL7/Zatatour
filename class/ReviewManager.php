@@ -14,7 +14,7 @@ class ReviewManager
     public function __construct($bdd)
 
     {
-        $this->bdd = $bdd;
+       $this->bdd = $bdd; 
     }
 
 

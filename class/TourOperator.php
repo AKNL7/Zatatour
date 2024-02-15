@@ -6,15 +6,20 @@ class tourOperator{
     private $link;
     private $gradeCount;
     private $gradeTotalprivate;
-    private $ispreminum;
+    private $isPremium;
+
+
+    public function __construct($data) {
+        $this->id = $data['id'];
+        $this->name = $data['name'];
+        $this->link = $data['link'];
+        $this->gradeCount = $data['grade_count'];
+        $this->gradeTotalprivate = $data['grade_total'];
+        $this->isPremium = $data['is_premium'];
+    }
 
 
 
-
-public function __construct($data) {
-    $this->
-
-}
 
     /**
      * Get the value of name
