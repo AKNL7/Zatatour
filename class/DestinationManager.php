@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 
 
@@ -15,10 +15,12 @@ public function showDestinationPrice(){
    return $request->fetchAll();
 }
 
+public function findDestination($destination){
+    
+    var_dump($destination['destination']);
+$request = $this->db->query("SELECT location FROM destination WHERE destination.location = $destination");
+return $request->fetchAll();
 }
 
-
-=======
-<?php 
->>>>>>> 2202ba7db7cbb5c418795aab9ba9dd84dfc2a374
+}
 

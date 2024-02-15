@@ -1,18 +1,19 @@
 <?php
 
-Class Destination {
+class Destination
+{
     private int $id; 
     private string $location; 
     private int $price; 
     private int $tourOperatorId; 
 
-    public function __construct($data)
+    
+    public function __construct($data) 
     {
         $this->id = $data['id'];
         $this->location = $data['location'];
         $this->price = $data['price'];
         $this->tourOperatorId = $data['tour_operator_id'];
-        
     }
 
     
