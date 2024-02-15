@@ -11,13 +11,8 @@ $this->db = $db;
 
 public function showDestinationPrice(){
     $request = $this->db->query("SELECT * FROM destination");
-    $destinationPrice = $request->fetchAll();
-    var_dump($destinationPrice);
-    return $destinationPrice;
+   return $request->fetchAll();
 }
-
-
-
 
 }
 

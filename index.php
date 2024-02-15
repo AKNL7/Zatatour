@@ -2,14 +2,18 @@
 require_once('./utils/connexion.php');
 require_once('./utils/autoload.php');
 
-$newDestination = new DestinationManager($bdd);
+$newDestinations = new DestinationManager($bdd);
 
-var_dump($newDestination);
-var_dump($newDestination->showDestinationPrice());
+ $topDestinations  = $newDestinations->showDestinationPrice();
 
+ $destinations = [];
 
+foreach ($topDestinations as $topDestination) {
 
-
+   $destinations[] = new Destination($topDestination);
+}
+ 
+var_dump($destinations);
 ?>
 
 
@@ -28,6 +32,16 @@ var_dump($newDestination->showDestinationPrice());
         <h1>
             Zatatour World
         </h1>
+         <h3> TOP DESTINATION</h3>
+        <form action="" method="post">
+            <?php 
+            foreach ($topDestinations  as $topDestination ) {
+
+                ?> <a href=""> <?php echo $topDestination['location']; $topDestination->getLocation?> </a> 
+                 <a href=""> <?php echo $topDestination['price'];?> <br></a> 
+                <?php } ?>
+           
+        </form>
     </header>
     <section>
         
