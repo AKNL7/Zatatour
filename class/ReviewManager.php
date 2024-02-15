@@ -20,7 +20,7 @@ class ReviewManager
 
     public function showMessage()
     {
-        $request = $this->bdd->query("SELECT message FROM review");
+        $request = $this->bdd->query("SELECT * FROM review");
         return $request->fetchAll();
         
     }
@@ -36,4 +36,6 @@ class ReviewManager
         $request = $this->bdd->query("SELECT tour_operator_id FROM review ");
        return $request->fetchAll();
     }
+
+    
 }
