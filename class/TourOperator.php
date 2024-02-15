@@ -11,7 +11,10 @@ class tourOperator{
 
 
 
+public function __construct($data) {
+    $this->
 
+}
 
     /**
      * Get the value of name

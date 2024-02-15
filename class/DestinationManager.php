@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 
@@ -17,4 +18,7 @@ public function showDestinationPrice(){
 }
 
 
+=======
+<?php 
+>>>>>>> 2202ba7db7cbb5c418795aab9ba9dd84dfc2a374
 
