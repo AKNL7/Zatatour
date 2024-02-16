@@ -21,14 +21,6 @@ class tourOperator{
 
 
 
-<<<<<<< HEAD
-public function __construct($data) {
-   
-
-}
-
-=======
->>>>>>> 09b0a475b84622314311fe4a13e2e4b3825db27c
     /**
      * Get the value of name
      */ 

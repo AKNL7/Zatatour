@@ -60,7 +60,7 @@ foreach ($operators as $operator) {
   <ul class="list-group list-group-flush">
     <li class="list-group-item">An item</li>
     <li class="list-group-item">A second item</li>
-    <li class="list-group-item"><?php echo $operators[1]->getName() ?> </li>
+    <li class="list-group-item"><?php  ?> </li>
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">Card link</a>
