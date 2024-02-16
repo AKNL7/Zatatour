@@ -13,15 +13,31 @@ $topDestinations  = $newDestinations->showDestinationPrice();
 
 $destinations = [];
 
+// hydratation pour affichage du top
 foreach ($topDestinations as $topDestination) {
-
     $destinations[] = new Destination($topDestination);
 }
 
-var_dump($_POST);
-$selectDestination = $newDestinations->findDestination($_POST);
+if (isset($_POST['destination']) && !empty($_POST['destination'])) {
 
-var_dump($selectDestination);
+    var_dump($_POST['destination']);
+
+    $selectDestinations = $newDestinations->findDestination($_POST['destination']);
+
+    var_dump($selectDestinations);
+
+    // hydration pour afficher les meme destination
+    $choiseDestination = [];
+
+    foreach ($selectDestinations as $selectDestination) {
+
+        $choiseDestinations = new Destination($selectDestination);
+
+        var_dump($choiseDestinations);
+    }
+
+    
+}
 
 ?>
 

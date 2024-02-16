@@ -12,7 +12,7 @@ class tourOperator{
 
 
 public function __construct($data) {
-    $this->
+   
 
 }
 
