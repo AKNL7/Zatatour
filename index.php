@@ -14,7 +14,6 @@ foreach ($reviews as $review) {
     $Allreviews[] = new Review($review);
 }
 
-
 // Creation des objets touroperator
 $newtop = new TourOperatorManager($bdd);
 $Alloperators = $newtop->showOperator();
@@ -41,26 +40,22 @@ foreach ($topDestinations as $topDestination) {
 
     $destinations[] = new Destination($topDestination);
 }
-
-var_dump($_POST);
-$selectDestination = $newDestinations->findDestination($_POST);
-
+// $selectDestination sert a retrouver une destination pour tout les operateur
+// c'est un tableaux simle
+$selectDestination = $newDestinations->findDestination($_POST['destination']);
 var_dump($selectDestination);
 
 ?>
 
-
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/style.css"> 
-    
     <title>zatatour</title>
+
 </head>
 <body>
    
@@ -111,97 +106,7 @@ var_dump($selectDestination);
   </div>
 </div>
         
-
-
-
-
-
-        
-
-
-
-      
-
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-</html>
-<?php
-require_once('./utils/autoload.php');
-require_once('./utils/connexion.php');
-
-$newreview = new ReviewManager($bdd);
-$reviewmsgs = $newreview->showMessage();
-// var_dump($reviewmsgs);
-$newoperator = new TourOperatorManager($bdd);
-$touroperators = $newoperator->showOperator();
-
-$newDestinations = new DestinationManager($bdd);
-$topDestinations  = $newDestinations->showDestinationPrice();
-
-$destinations = [];
-
-foreach ($topDestinations as $topDestination) {
-
-    $destinations[] = new Destination($topDestination);
-}
-
-var_dump($_POST);
-$selectDestination = $newDestinations->findDestination($_POST);
-
-var_dump($selectDestination);
-
-?>
-
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zatatour</title>
-</head>
-
-<body>
-    <header>
-        <h1>
-            Zatatour World
-        </h1>
-        <h3> TOP DESTINATION</h3>
-
-        <!-- quand je clique sur envoyer en methode post le formulaire envoie id du voyage select -->
-
-        <form action="" method="post">
-            <label for="destination">DESTINATION : </label>
-
-            <select name="destination" id="destination">
-                <!-- <option value="">--Vers quel destination voulez-vous allez--</option> -->
-                <?php foreach ($destinations as $destination) {
-                ?> <option value="<?php echo $destination->getLocation(); ?>">
-                        <?php echo $destination->getLocation(); ?> </option>
-                <?php } ?>
-            </select>
-            <button type="submit">Envoyer</button>
-        </form>
-    </header>
-    <section>
-        <div>
-            <p> <?php foreach ($touroperators as $touroperator) {
-                    echo $touroperator[1] . "<br>";
-                    echo $touroperator[2] . "<br>";
-                    echo $touroperator[3] . "<br>";
-                    echo $touroperator[4] . "<br>";
-                } ?></p>
-        </div>
-
-        <div>
-            <p><?php foreach ($reviewmsgs as $reviewmsg) {
-                    echo $reviewmsg['message'] . "<br>";
-                    echo $reviewmsg['author'] . "<br>";
-                    echo $reviewmsg['tour_operator_id'] . "<br>";
-                } ?></p>
-        </div>
-    </section>
-</body>
-
 </html>

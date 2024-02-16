@@ -19,8 +19,13 @@ class DestinationManager
     }
 
     public function findDestination($destination)
-    {
-        $request = $this->db->query("SELECT * FROM destination WHERE destination.location = '$destination' ");
-        return $request->fetchAll();
-    }
+{
+ var_dump($destination);
+    $request = $this->db->prepare("SELECT * FROM destination WHERE destination.location = :destination ");
+    $request->execute([
+        ":destination" => $destination
+    ]);
+
+    return $request->fetchAll();
+}
 }
