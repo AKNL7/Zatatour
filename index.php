@@ -25,13 +25,30 @@ foreach ($Alloperators as $Alloperator) {
     $operators[]= new TourOperator($Alloperator);
 }
 
-var_dump($operators);
+// var_dump($operators);
 
 foreach ($operators as $operator) {
    
 }
 
+// Creation objets destination
+$newDestinations = new DestinationManager($bdd);
+$topDestinations  = $newDestinations->showDestinationPrice();
+
+$destinations = [];
+
+foreach ($topDestinations as $topDestination) {
+
+    $destinations[] = new Destination($topDestination);
+}
+
+var_dump($_POST);
+$selectDestination = $newDestinations->findDestination($_POST);
+
+var_dump($selectDestination);
+
 ?>
+
 
 
 
@@ -41,15 +58,41 @@ foreach ($operators as $operator) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css"> 
+    
     <title>zatatour</title>
 </head>
 <body>
-    <header>
+   
+    <header class="header">
+       
         <h1>
-            zatatour World
+            Zatatour World
         </h1>
+ 
+    </header>
+   
+    
+   
+    <h3> TOP DESTINATION</h3>
+
+        <!-- quand je clique sur envoyer en methode post le formulaire envoie id du voyage select -->
+
+        <form action="" method="post">
+            <label for="destination">DESTINATION : </label>
+
+            <select name="destination" id="destination">
+                <!-- <option value="">--Vers quel destination voulez-vous allez--</option> -->
+                <?php foreach ($destinations as $destination) {
+                ?> <option value="<?php echo $destination->getLocation(); ?>">
+                        <?php echo $destination->getLocation(); ?> </option>
+                <?php } ?>
+            </select>
+            <button type="submit">Envoyer</button>
+        </form>
     </header>
     <section>
+    
        
     <div class="card" style="width: 18rem;">
   <img src="..." class="card-img-top" alt="...">
@@ -98,31 +141,15 @@ $topDestinations  = $newDestinations->showDestinationPrice();
 
 $destinations = [];
 
-// hydratation pour affichage du top
 foreach ($topDestinations as $topDestination) {
+
     $destinations[] = new Destination($topDestination);
 }
 
-if (isset($_POST['destination']) && !empty($_POST['destination'])) {
+var_dump($_POST);
+$selectDestination = $newDestinations->findDestination($_POST);
 
-    var_dump($_POST['destination']);
-
-    $selectDestinations = $newDestinations->findDestination($_POST['destination']);
-
-    var_dump($selectDestinations);
-
-    // hydration pour afficher les meme destination
-    $choiseDestination = [];
-
-    foreach ($selectDestinations as $selectDestination) {
-
-        $choiseDestinations = new Destination($selectDestination);
-
-        var_dump($choiseDestinations);
-    }
-
-    
-}
+var_dump($selectDestination);
 
 ?>
 
