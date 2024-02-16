@@ -9,9 +9,14 @@ isset($_POST['destination']) && !empty($_POST['destination']) &&
 isset($_POST['price']) && !empty($_POST['price'])
 );
 
+var_dump($_POST);
 
 
-// $insertinfo = new AdminManager($bdd);
+$checkinfo = new AdminManager($bdd);
+$checkinfo->checkOperator();
+var_dump($checkinfo->checkOperator());
+
+
 ?>
 
 <form method="post" action="">
@@ -23,10 +28,15 @@ isset($_POST['price']) && !empty($_POST['price'])
     >Link :
     <input name="link" type="url" value="" />
   </label>
-  <label
-    >Destination :
-    <input name="destination" value="" />
-  </label>
+  <label for="destination">DESTINATION : </label>
+
+<select name="destination" id="destination">
+    <!-- <option value="">--Vers quel destination voulez-vous allez--</option> -->
+    <?php foreach ($destinations as $destination) {
+    ?> <option value="<?php echo $destination->getLocation(); ?>">
+            <?php echo $destination->getLocation(); ?> </option>
+    <?php } ?>
+</select>
   <label
     >Price :
     <input name="price" value="" />
