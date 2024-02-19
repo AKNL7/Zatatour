@@ -9,7 +9,7 @@ isset($_POST['destination']) && !empty($_POST['destination']) &&
 isset($_POST['price']) && !empty($_POST['price'])
 );
 
-var_dump($_POST);
+// var_dump($_POST);
 
 
 $checkinfo = new AdminManager($bdd);
