@@ -14,7 +14,7 @@ class DestinationManager
 
     public function distinctLocation()
     {
-        $request = $this->db->query("SELECT DISTINCT id,location FROM destination");
+        $request = $this->db->query("SELECT DISTINCT location FROM destination");
         return $this->hydrate($request->fetchAll(), 'Destination');
     }
 

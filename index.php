@@ -24,7 +24,7 @@ foreach ($Alloperators as $Alloperator) {
     $operators[] = new TourOperator($Alloperator);
 }
 
-// var_dump($operators);
+var_dump($operators);
 
 foreach ($operators as $operator) {
 }
@@ -32,9 +32,9 @@ foreach ($operators as $operator) {
 // Creation objets destination
 $newDestinations = new DestinationManager($bdd);
 $topDestinations  = $newDestinations->findAllLocations();
-var_dump($topDestinations);
+// var_dump($topDestinations);
 
-var_dump($topDestinations);
+// var_dump($topDestinations);
 $destinations = [];
 
 
@@ -47,8 +47,8 @@ $destinations = [];
 if (isset($_POST['destination']) && !empty($_POST['destination'])) {
     // $selectDestination sert a retrouver une destination pour tout les operateur
     // c'est un tableaux simple
-    $selectDestination = $newDestinations->findDestination($_POST['destination']);
-// var_dump($selectDestination);
+    $selectDestination = $newDestinations->distinctLocation($_POST['destination']);
+    // var_dump($selectDestination);
 }
 
 
@@ -96,26 +96,28 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
     </header>
     <section>
 
-<?php foreach ($newDestinations->distinctLocation() as $destination) {?>
-    
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title"><?php echo $destination->getLocation();  ?></h5>
-            <p class="card-text">ZATATOUR VOS VACANCES DE REVE</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item"><?php  ?> </li>
-        </ul>
-        <!-- pour premium -->
-        <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-    </div>
-<?php } ?>
+        <div id="destinationshow">
+            <?php foreach ($newDestinations->distinctLocation() as $destination) { ?>
 
+                <div class="card" style="width: 18rem;">
+                    <img src="./img/zatatoyur.jpg" class="card-img-top" alt="card de vacances">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><?php echo $destination->getLocation();  ?></h5>
+                        <p class="card-text">ZATATOUR VOS VACANCES DE REVE</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item"><?php  ?> </li>
+                    </ul>
+                    <!-- pour premium -->
+                    <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+
+            <?php } ?>
+        </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
