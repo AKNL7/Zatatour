@@ -22,23 +22,36 @@ class AdminManager
 
     }
 
-    public function insertOperator($bdd) {
+    public function doubleOperator($operatorName) {
+  
+    $request = $this->bdd->prepare('SELECT * FROM tour_operator WHERE name = :name');
+    $request->execute ([
+        'name'=> $operatorName
+    ]);
+     return $request->fetch();
+   
+    }
 
-        $insert = $bdd->prepare("INSERT INTO tour_operator (name, link, is_premium) VALUES (:name, :link, :is_premium)");
+
+
+        public function insertOperator($data) {
+            $insert = $this->bdd->prepare("INSERT INTO tour_operator (`name`, link, grade_count, grade_total, is_premium) VALUES (:name, :link, :grade_count, :grade_total, :is_premium)");
+            
+            $insert->execute([
+                'name' => $data['name'],
+                'link' => $data['link'],
+                'grade_count' => $data['grade_count'],
+                'grade_total' => $data['grade_total'],
+                'is_premium' => $data['premium']
+            ]);
+        }
         
-        $insert->execute([
-        ':name' => $_POST['name'],
-        ':link' => $_POST['link'],
-        ':is_premium' => $_POST['is_premium'],
-     
-        ]);
 
-      $insertId = $bdd->lastInsertId();
+
       }
 
 
-    }
-
+    
 
 
 
