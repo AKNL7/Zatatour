@@ -17,4 +17,8 @@ h1 {
     color: antiquewhite;
 }
     
-  
+#destinationshow{
+    display: flex;
+    
+    flex-direction: row;
+}
