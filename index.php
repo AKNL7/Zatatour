@@ -31,18 +31,27 @@ foreach ($operators as $operator) {
 
 // Creation objets destination
 $newDestinations = new DestinationManager($bdd);
-$topDestinations  = $newDestinations->showDestinationPrice();
+$topDestinations  = $newDestinations->findAllLocations();
+var_dump($topDestinations);
 
+var_dump($topDestinations);
 $destinations = [];
 
-foreach ($topDestinations as $topDestination) {
 
-    $destinations[] = new Destination($topDestination);
+// foreach ($topDestinations as $topDestination) {
+
+//     $destinations[] = new Destination($topDestination);
+// }
+
+
+if (isset($_POST['destination']) && !empty($_POST['destination'])) {
+    // $selectDestination sert a retrouver une destination pour tout les operateur
+    // c'est un tableaux simple
+    $selectDestination = $newDestinations->findDestination($_POST['destination']);
+// var_dump($selectDestination);
 }
-// $selectDestination sert a retrouver une destination pour tout les operateur
-// c'est un tableaux simle
-$selectDestination = $newDestinations->findDestination($_POST['destination']);
-var_dump($selectDestination);
+
+
 
 ?>
 
@@ -68,8 +77,6 @@ var_dump($selectDestination);
 
     </header>
 
-
-
     <h3> TOP DESTINATION</h3>
 
     <!-- quand je clique sur envoyer en methode post le formulaire envoie id du voyage select -->
@@ -79,7 +86,7 @@ var_dump($selectDestination);
 
         <select name="destination" id="destination">
             <!-- <option value="">--Vers quel destination voulez-vous allez--</option> -->
-            <?php foreach ($destinations as $destination) {
+            <?php foreach ($newDestinations->distinctLocation() as $destination) {
             ?> <option value="<?php echo $destination->getLocation(); ?>">
                     <?php echo $destination->getLocation(); ?> </option>
             <?php } ?>
@@ -89,23 +96,25 @@ var_dump($selectDestination);
     </header>
     <section>
 
-
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item"><?php  ?> </li>
-            </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div>
+<?php foreach ($newDestinations->distinctLocation() as $destination) {?>
+    
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><?php echo $destination->getLocation();  ?></h5>
+            <p class="card-text">ZATATOUR VOS VACANCES DE REVE</p>
         </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item"><?php  ?> </li>
+        </ul>
+        <!-- pour premium -->
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+<?php } ?>
 
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

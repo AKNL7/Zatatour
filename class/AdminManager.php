@@ -10,8 +10,6 @@ class AdminManager
 {
     private PDO $bdd;
 
-
-
     public function __construct($bdd)
     {
         $this->bdd = $bdd;

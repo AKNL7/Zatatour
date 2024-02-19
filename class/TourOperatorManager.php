@@ -10,7 +10,7 @@ Class TourOperatorManager
     }
 
     public function showOperator() {
-        $request = $this->bdd->query("SELECT * FROM tour_operator");
+        $request = $this->bdd->query("SELECT DISTINCT * FROM tour_operator");
         return $request->fetchAll();
         
     }

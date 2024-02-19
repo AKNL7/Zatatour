@@ -10,10 +10,21 @@ class Destination
     
     public function __construct($data) 
     {
-        $this->id = $data['id'];
-        $this->location = $data['location'];
-        $this->price = $data['price'];
-        $this->tourOperatorId = $data['tour_operator_id'];
+        if(isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+
+        if(isset($data['location'])) {
+            $this->location = $data['location'];
+        }
+
+        if(isset($data['price'])) {
+            $this->price = $data['price'];
+        }
+
+        if(isset($data['tour_operator_id'])) {
+            $this->tourOperatorId = $data['tour_operator_id'];
+        }
     }
 
     
