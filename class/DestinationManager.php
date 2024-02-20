@@ -15,13 +15,13 @@ class DestinationManager
     public function distinctLocation()
     {
         $request = $this->db->query("SELECT DISTINCT location FROM destination");
-        return $this->hydrate($request->fetchAll(), 'Destination');
+        return $this->hydrate($request->fetchAll());
     }
 
     public function findAllLocations()
     {
         $request = $this->db->query("SELECT * FROM destination");
-        return $this->hydrate($request->fetchAll(), 'Destination');
+        return $this->hydrate($request->fetchAll());
     }
 
     public function findDestination($destination)
@@ -32,14 +32,26 @@ class DestinationManager
             ":destination" => $destination
         ]);
 
-        $this->hydrate($request->fetchAll(), 'Destination');
+        $this->hydrate($request->fetchAll());
     }
 
-    public function hydrate(array $data, string $objectName) {
+    public function insertDestination($destination)
+    {
+        
+        $insert = $this->db->prepare("INSERT INTO destination (location, price) VALUES (:location, :price)");
+
+        $insert->execute([
+            'location' => $destination['location'],
+            
+        ]);
+    }
+
+
+    public function hydrate(array $data) {
         $arrayObject = [];
 
         foreach($data as $object) {
-            $arrayObject[] = new $objectName($object);
+            $arrayObject[] = new Destination($object);
         }
 
         return $arrayObject;

@@ -1,21 +1,22 @@
 <?php
 
-class tourOperator{
+class TourOperator{
     private $id;
     private $name;
     private $link;
     private $gradeCount;
     private $gradeTotalprivate;
-    private $isPremium;
+    // private bool $isPremium = false;
 
 
     public function __construct($data) {
+
         $this->id = $data['id'];
         $this->name = $data['name'];
         $this->link = $data['link'];
         $this->gradeCount = $data['grade_count'];
         $this->gradeTotalprivate = $data['grade_total'];
-        $this->isPremium = $data['premium'];
+        // $this->isPremium = $data['premium'];
     }
 
 
@@ -91,4 +92,24 @@ class tourOperator{
         return $this;
     }
 
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 }
