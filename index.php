@@ -24,7 +24,7 @@ foreach ($Alloperators as $Alloperator) {
     $operators[] = new TourOperator($Alloperator);
 }
 
-var_dump($operators);
+
 
 foreach ($operators as $operator) {
 }
@@ -61,7 +61,7 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./style/style.css">
     <title>zatatour</title>
 
@@ -94,32 +94,46 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
         <button type="submit">Envoyer</button>
     </form>
     </header>
-    <section>
 
-        <div id="destinationshow">
+
+    <section class="cards_group">
+
+
+
+
+
+
+
+        <div class="main">
             <?php foreach ($newDestinations->distinctLocation() as $destination) { ?>
+                <ul class="cards">
+                    <li class="cards_item">
+                        <div class="card">
+                            <div class="card_image">
+                                <img src="./img/zatatoyur.jpg" alt="mixed vegetable salad in a mason jar." />
+                                <span class="card_price"><span>$</span>9</span>
+                            </div>
+                            <div class="card_content">
+                                <h2 class="card_title"><?php echo $destination->getLocation();  ?></h2>
+                                <div class="card_text">
+                                    <p>Dig into the freshest veggies of the season! This salad-in-a-jar features a mixture of
+                                        leafy greens and seasonal vegetables, fresh from the farmer's market.
+                                    </p>
+                                    <hr />
+                                    <p>Served with your choice of dressing on the side: <strong>housemade ranch</strong>, <strong>cherry balsamic
+                                            vinaigrette</strong>, <strong>creamy chipotle</strong>, <strong>avocado green goddess</strong>, or <strong>honey mustard</strong>. Add your choice
+                                        of protein for $2 more.
+                                    </p>
+                                </div>
+                            </div>
 
-                <div class="card" style="width: 18rem;">
-                    <img src="./img/zatatoyur.jpg" class="card-img-top" alt="card de vacances">
-                    <div class="card-body text-center">
-                        <h5 class="card-title"><?php echo $destination->getLocation();  ?></h5>
-                        <p class="card-text">ZATATOUR VOS VACANCES DE REVE</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
+                        </div>
+                    </li>
 
-                        <li class="list-group-item"><?php  ?> </li>
-                    </ul>
-                    <!-- pour premium -->
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-
+                </ul>
             <?php } ?>
         </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
