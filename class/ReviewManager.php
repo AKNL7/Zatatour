@@ -37,5 +37,14 @@ class ReviewManager
        return $request->fetchAll();
     }
 
-    
+    public function insertReview($data) {
+        $request = $this->bdd->prepare('INSERT INTO review ("message", author, tour_operator_id) VALUES (":message", :author, :tour_operator_id)');
+
+        $request->execute([
+            ':message' => $data['message'],
+            ':author' => $data['author'],
+            ':tour_operator_id' => $data['tour_operator_id']
+            
+        ]);
+    }
 }

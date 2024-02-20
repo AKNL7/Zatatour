@@ -1,7 +1,14 @@
-* {
-    margin:auto; 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&display=swap');
 
+/* Style Index */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Playfair Display', serif;
 }
+
 
 .header {
     min-height: 50vh;
@@ -15,10 +22,463 @@ h1 {
     justify-content: center;
     text-align: center;
     color: antiquewhite;
+    font-size:10rem;
 }
     
-#destinationshow{
-    display: flex;
-    
-    flex-direction: row;
+
+
+
+
+#header{
+  margin:20px;
+}
+
+/* Style cards index */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+
+.main {
+  max-width: 1200px;
+  margin: auto;
+  display:flex; 
+  justify-content: space-between;
+  gap: 2px;
+ 
+ 
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 18rem;
+
+ 
+}
+
+.card {
+  width: 18rem;
+
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+  
+}
+
+.card_image {
+  position: relative;
+  max-height: 1000px;
+}
+
+.card_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card_price {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 0.25rem;
+  background-color: #c89b3f;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card_price span {
+  font-size: 12px;
+  margin-top: -2px;
+}
+
+.note {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 4px 8px;
+  border-radius: 0.25rem;
+  background-color: #c89b3f;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (max-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card_content {
+  position: relative;
+  padding: 16px 12px 32px 24px;
+  margin: 16px 8px 8px 0;
+  max-height: 290px;
+  overflow-y: scroll;
+}
+
+.card_content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card_content::-webkit-scrollbar-track {
+  box-shadow: 0;
+  border-radius: 0;
+}
+
+.card_content::-webkit-scrollbar-thumb {
+  background: #c89b3f;
+  border-radius: 15px;
+}
+
+.card_title {
+  position: relative;
+  margin: 0 0 24px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card_title::after {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #c89b3f;
+  content: "";
+}
+
+hr {
+  margin: 24px auto;
+  width: 50px;
+  border-top: 2px solid #c89b3f;
+}
+
+.card_text p {
+  margin: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.card_text p:last-child {
+  margin: 0;
+}
+
+
+
+/* Card Destination */
+
+/* .card-image {
+   width: auto;
+}
+
+img {
+    width:900px;
+}
+
+.card-text {
+    margin-top: 5%;
+    padding: 2%;
+}
+
+.card_destination {
+  display:flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+  padding-bottom: 10px;
+  width: 900px; 
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.destination_comment {
+  display:flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
+
+.card_destination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 10px;
+  width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px; /* Add margin space above the card_destination */
+}
+
+.card-image {
+  width: auto;
+}
+
+img {
+  width: 900px;
+}
+
+.card-text {
+  margin-top: 5%;
+  padding: 2%;
+}
+
+
+
+.destination_comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+/* Tour Operator table */
+/* .to_table {
+  display:flex; 
+  justify-content:start;
+  align-items: center;
+  flex-direction: column;
+  margin:auto;
+
+}
+.text-center {
+	text-align: center;
+}
+
+.pricing-box-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.pricing-box {
+	background-color: #ffffff;
+	box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.5);
+	border-radius: 4px;
+	flex: 1;
+	padding: 0 30px 30px;
+	margin: 2%;
+	min-width: 250px;
+	max-width: 350px;
+}
+
+.pricing-box h5 {
+	text-transform: uppercase;
+}
+
+.price {
+	margin: 24px 0;
+	font-size: 36px;
+	font-weight: 900;
+}
+
+.price sub, .price sup {
+	font-size: 16px;
+	font-weight: 100;
+}
+
+.features-list {
+	padding: 0;
+	list-style-type: none;
+}
+
+.features-list li {
+	font-weight: 100;
+	padding: 12px 0;
+	font-weight: 100;
+}
+
+.features-list li:not(:last-of-type) {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+	border-radius: 25px;
+	border: none;
+	background-color:#c89b3f;
+	color: #ffffff;
+	cursor: pointer;
+	padding: 10px 15px;
+	margin-top: 20px;
+	text-transform: uppercase;
+	transition: all 0.1s ease-in-out;
+}
+
+.btn-primary:hover {
+	box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.5);
+	transform: translateY(-3px);
+}
+
+.pricing-box-bg-image {
+
+	background-size: cover;
+	background-position: center center;
+	color: #ffffff;
+}
+
+.pricing-box-bg-image .features-list li {
+	border-bottom-color: rgba(255, 255, 255, 1);
+}
+
+.pricing-box-bg-image .btn-primary {
+	background-color: #ffffff;
+	color: #000;
+} */
+
+.to_table {
+  
+    position: absolute; /* Position the tour operator table */
+    bottom: 20px; /* Align the tour operator table to the bottom */
+    left: 20px; /* Align the tour operator table to the left */
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+.pricing-box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.pricing-box {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  flex: 1;
+  padding: 0 30px 30px;
+  margin: 2%;
+  min-width: 250px;
+  max-width: 350px;
+}
+
+.pricing-box h5 {
+  text-transform: uppercase;
+}
+
+.price {
+  margin: 24px 0;
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.price sub,
+.price sup {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.features-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.features-list li {
+  font-weight: 100;
+  padding: 12px 0;
+  font-weight: 100;
+}
+
+.features-list li:not(:last-of-type) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  border-radius: 25px;
+  border: none;
+  background-color: #c89b3f;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn-primary:hover {
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+.pricing-box-bg-image {
+  background-size: cover;
+  background-position: center center;
+  color: #ffffff;
+}
+
+.pricing-box-bg-image .features-list li {
+  border-bottom-color: rgba(255, 255, 255, 1);
+}
+
+.pricing-box-bg-image .btn-primary {
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* Reviews Section */
+.reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Add margin space above the reviews */
+  border-top: 1px solid #ccc; /* Add a border above the reviews */
+  padding-top: 20px; /* Add padding above the reviews */
+  width: 300px; /* Adjust the width of the reviews section */
+  position: absolute; /* Position the reviews section */
+  bottom: 20px; /* Align the reviews section to the bottom */
+  right: 20px; /* Align the reviews section to the right */
+}
+
+.reviews .comment {
+  width: 100%; /* Make the comments stretch to the width of the reviews section */
+  height: 100px; /* Adjust the height of the comment box as needed */
+  border: 1px solid #ccc; /* Add a border around the comment box */
+  margin-bottom: 10px; /* Add margin space between comments */
+  padding: 10px; /* Add padding inside the comment box */
+}
+
+.reviews .destination_comment {
+  margin-top: 10px; /* Adjust the margin between the comments and the form */
 }

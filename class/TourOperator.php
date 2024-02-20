@@ -15,7 +15,7 @@ class tourOperator{
         $this->link = $data['link'];
         $this->gradeCount = $data['grade_count'];
         $this->gradeTotalprivate = $data['grade_total'];
-        $this->isPremium = $data['premium'];
+        // $this->isPremium = $data['premium'];
     }
 
 
