@@ -96,25 +96,14 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
                                 <h2 class="card_title"><?php echo $destination->getLocation();  ?></h2>
                                 <div class="card_text">
                                     <p>Dig into the freshest veggies of the season! This salad-in-a-jar features a mixture of
-
                                     </p>
                                     <hr />
 
-
-
                                     <form action="destinationFront.php" method="post">
-
-
                                         <input type="hidden" name="custId" value="<?php echo $destination->getLocation();
                                                                                     ?>">
                                         <input type="submit" value="Submit">
                                     </form>
-
-
-
-
-
-
 
                                 </div>
                             </div>
@@ -123,10 +112,7 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
                     </li>
 
                 </ul>
-                <form action="./destinationFront.php" method="post">
-                    <input type="hidden" name="location" value="<?php echo $destination->getLocation();  ?>">
-                    <input type="submit" value="Submit">
-                </form>
+           
 
             <?php  } ?>
         </div>

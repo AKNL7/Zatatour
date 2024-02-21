@@ -46,7 +46,7 @@ if (
 </head>
 
 <body class="destination">
-    <h1 class="text-center"><?php echo $_POST['location']; ?></h1>
+    <h1 class="text-center"><?php echo $_POST['custId']; ?></h1>
 
     <div class="main-content">
         <div class="card_destination">
