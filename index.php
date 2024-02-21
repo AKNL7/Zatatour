@@ -19,17 +19,6 @@ $newtop = new TourOperatorManager($db);
 $Alloperators = $newtop->showOperator();
 $operator->
 
-$operators = [];
-
-foreach ($Alloperators as $Alloperator) {
-    $operators[] = new TourOperator($Alloperator);
-}
-
-
-
-foreach ($operators as $operator) {
-}
-
 // Creation objets destination
 $newDestinations = new DestinationManager($db);
 $topDestinations  = $newDestinations->findAllLocations();
