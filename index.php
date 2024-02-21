@@ -16,8 +16,8 @@ foreach ($reviews as $review) {
 
 // Creation des objets touroperator
 $newtop = new TourOperatorManager($db);
-$Alloperators = $newtop->showOperator();
-$operator->
+// $Alloperators = $newtop->showOperator();
+
 
 // Creation objets destination
 $newDestinations = new DestinationManager($db);
@@ -32,7 +32,6 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
     // $selectDestination sert a retrouver une destination pour tout les operateur
     // c'est un tableaux simple
     $selectDestination = $newDestinations->distinctLocation($_POST['destination']);
- 
 }
 
 
@@ -105,10 +104,23 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
                                         leafy greens and seasonal vegetables, fresh from the farmer's market.
                                     </p>
                                     <hr />
-                                    <p>Served with your choice of dressing on the side: <strong>housemade ranch</strong>, <strong>cherry balsamic
-                                            vinaigrette</strong>, <strong>creamy chipotle</strong>, <strong>avocado green goddess</strong>, or <strong>honey mustard</strong>. Add your choice
-                                        of protein for $2 more.
-                                    </p>
+
+                                   
+                                    
+                                    <form action="destinationFront.php" method="post">
+                                      
+                                        
+                                        <input type="hidden" name="custId" value="<?php echo $destination->getLocation(); 
+                                         ?>">
+                                        <input type="submit" value="Submit">
+                                    </form>
+
+                                    
+
+
+
+
+
                                 </div>
                             </div>
 
