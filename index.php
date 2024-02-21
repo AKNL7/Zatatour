@@ -27,10 +27,6 @@ $topDestinations  = $newDestinations->findAllLocations();
 $destinations = [];
 
 
-// foreach ($topDestinations as $topDestination) {
-
-//     $destinations[] = new Destination($topDestination);
-// }
 
 
 if (isset($_POST['destination']) && !empty($_POST['destination'])) {
