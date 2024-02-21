@@ -10,8 +10,17 @@ var_dump($_POST['custId']);
 $newdestination = new DestinationManager($db);
 
 // je recupere les operateur par rapport a une a une location
-$newdestination->getOperatorInfo($_POST['custId']);
-var_dump($newdestination->getOperatorInfo($_POST['custId']));
+$voyages =$newdestination->getOperatorInfo($_POST['custId']);
+var_dump($voyages);
+
+$operators =[];
+$newoperator = new TourOperatorManager($db);
+foreach ($voyages as $voyage) {
+    $operators[] = $newoperator->getNameById($voyage->getTourOperatorId());
+
+}
+
+
 
 $newAdminManager = new AdminManager($db);
 // $k = $newAdminManager->checkOperatorId();
@@ -48,7 +57,13 @@ if (
 
    
 };
-$newdestination->getOperatorInfo($location);
+
+
+// cree une instance tour_operator
+
+
+
+
  ?>
 <!DOCTYPE html>
 <html lang="fr">

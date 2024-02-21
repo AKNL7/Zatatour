@@ -16,6 +16,13 @@ class TourOperatorManager
         return $this->hydrate($request->fetchAll(PDO::FETCH_ASSOC));
     }
 
+    public function getNameById($byId)
+        {
+            $request = $this->db->query("SELECT name FROM tour_operator WHERE id = $byId");
+            return $this->hydrate($request->fetch());
+        }
+    
+
     public function hydrate(array $data)
     {
         $operators = [];

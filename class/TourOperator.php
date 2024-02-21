@@ -11,13 +11,25 @@ class TourOperator{
 
     public function __construct($data) {
 
-        $this->id = $data['id'];
-        $this->name = $data['name'];
-        $this->link = $data['link'];
-        $this->gradeCount = $data['grade_count'];
-        $this->gradeTotalprivate = $data['grade_total'];
-        $this->isPremium = $data['is_premium'];
+        if (isset($data['id'])) {
+            $this->id = $data['id'];
+        }
+        if (isset($data['name'])) {
+            $this->id = $data['name'];
+        }
+        if (isset($data['grade_count'])) {
+            $this->id = $data['grade_count'];
+        }
+        if (isset($data['grade_total'])) {
+            $this->id = $data['grade_total'];
+        }
+        if (isset($data['is_premium'])) {
+            $this->id = $data['is_premium'];
+        }
+    
     }
+
+
 
 
 
