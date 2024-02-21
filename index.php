@@ -5,7 +5,7 @@ require_once('./utils/connexion.php');
 
 
 // Creations des objets review
-$newreviews = new ReviewManager($bdd);
+$newreviews = new ReviewManager($db);
 $reviews = $newreviews->showMessage();
 
 $Allreviews = [];
@@ -15,22 +15,11 @@ foreach ($reviews as $review) {
 }
 
 // Creation des objets touroperator
-$newtop = new TourOperatorManager($bdd);
+$newtop = new TourOperatorManager($db);
 $Alloperators = $newtop->showOperator();
 
-$operators = [];
-
-foreach ($Alloperators as $Alloperator) {
-    $operators[] = new TourOperator($Alloperator);
-}
-
-
-
-foreach ($operators as $operator) {
-}
-
 // Creation objets destination
-$newDestinations = new DestinationManager($bdd);
+$newDestinations = new DestinationManager($db);
 $topDestinations  = $newDestinations->findAllLocations();
 // var_dump($topDestinations);
 
