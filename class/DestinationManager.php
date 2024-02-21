@@ -35,26 +35,32 @@ class DestinationManager
         $this->hydrate($request->fetchAll());
     }
 
+    public function getOperatorInfo($location)
+    {
+        $request = $this->db->query("SELECT * FROM destination WHERE location = '$location'");
+        return $this->hydrate($request->fetchAll());
+    }
+
     public function insertDestination($destination)
     {
-        
+
         $insert = $this->db->prepare("INSERT INTO destination (location, price) VALUES (:location, :price)");
 
         $insert->execute([
             'location' => $destination['location'],
-            
+
         ]);
     }
 
 
-    public function hydrate(array $data) {
+    public function hydrate(array $data)
+    {
         $arrayObject = [];
 
-        foreach($data as $object) {
+        foreach ($data as $object) {
             $arrayObject[] = new Destination($object);
         }
 
         return $arrayObject;
     }
-   
 }

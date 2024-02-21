@@ -23,9 +23,6 @@ class TourOperatorManager
             var_dump($operator);
             $operators[] = new TourOperator($operator);
         }
-
-
- 
         return $operators;
     }
 }

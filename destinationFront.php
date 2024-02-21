@@ -1,16 +1,31 @@
 <?php
 
+
 require_once("./utils/autoload.php");
 require_once("./utils/connexion.php");
+// je dois afficher les touroperator par rapport a une destination ::::::
+
+// je recupere une destination name
+var_dump($_POST['custId']);
+$newdestination = new DestinationManager($db);
+
+// je recupere les operateur par rapport a une a une location
+$newdestination->getOperatorInfo($_POST['custId']);
+var_dump($newdestination->getOperatorInfo($_POST['custId']));
+
+$newAdminManager = new AdminManager($db);
+// $k = $newAdminManager->checkOperatorId();
 
 $reviews = new ReviewManager($db);
+// instance de aminmanager
 
 
-if (isset($_POST['destination']) && !empty(['destination'])) {
+
+if (isset($_POST['custId']) && !empty($_POST['custId'])) {
 // creation d'une instance 
     
      // selectioner des review avec les tour operator
-    $reviews->getReviewByOperatorId($tour_operator_id);
+    // $reviews->getReviewByOperatorId();
 }
 
 
@@ -29,12 +44,12 @@ if (
     // var_dump($reviews->showMessage());
 
     // insert des review
-    $reviews->insertReview($_POST);
+    // $reviews->insertReview($_POST);
 
    
 };
-?>
-
+$newdestination->getOperatorInfo($location);
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
 

@@ -19,12 +19,10 @@ class AdminManager
     public function checkOperatorId($name)
     {
 
-        $checkOp = $this->db->prepare("SELECT id FROM tour_operator WHERE tour_operator.name = :name");
+        $checkOp = $this->db->prepare("SELECT id FROM tour_operator WHERE tour_operator.name = $name");
         $checkOp->bindParam(':name', $name, PDO::PARAM_STR);
         $checkOp->execute();
-        $az = $checkOp->fetch();
-        var_dump($az);
-        return $az;
+         return  $checkOp->fetch();
     }
 
     // verifie si il y a des doublon quand on check les operateur
