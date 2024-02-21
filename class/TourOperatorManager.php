@@ -1,25 +1,31 @@
-<?php 
+<?php
 
-class TourOperatorManager 
+class TourOperatorManager
 {
-    
-    private PDO $bdd; 
 
-    public function __construct ($bdd) {
-        $this->bdd = $bdd; 
+    private PDO $db;
+
+    public function __construct($db)
+    {
+        $this->db = $db;
     }
 
-    public function showOperator() {
-        $request = $this->bdd->query("SELECT DISTINCT * FROM tour_operator");
-        return $this->hydrate($request->fetchAll());
+    public function showOperator()
+    {
+        $request = $this->db->query("SELECT DISTINCT * FROM tour_operator");
+        return $this->hydrate($request->fetchAll(PDO::FETCH_ASSOC));
     }
 
-    public function hydrate(array $data) {
+    public function hydrate(array $data)
+    {
         $operators = [];
-        foreach($data as $operator) {
+        foreach ($data as $operator) {
+            var_dump($operator);
             $operators[] = new TourOperator($operator);
         }
+
+
+ 
         return $operators;
     }
-
 }

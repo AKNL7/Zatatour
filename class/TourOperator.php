@@ -6,7 +6,7 @@ class TourOperator{
     private $link;
     private $gradeCount;
     private $gradeTotalprivate;
-    // private bool $isPremium = false;
+    private bool $isPremium = false;
 
 
     public function __construct($data) {
@@ -16,7 +16,7 @@ class TourOperator{
         $this->link = $data['link'];
         $this->gradeCount = $data['grade_count'];
         $this->gradeTotalprivate = $data['grade_total'];
-        // $this->isPremium = $data['premium'];
+        $this->isPremium = $data['is_premium'];
     }
 
 
@@ -83,7 +83,7 @@ class TourOperator{
     /**
      * Set the value of gradeTotalprivate
      *
-     * @return  self
+     
      */ 
     public function setGradeTotalprivate($gradeTotalprivate)
     {
@@ -93,6 +93,14 @@ class TourOperator{
     }
 
 
+    public function setisPremium($isPremium) {
+        $this->isPremium = $isPremium;
+    }
+
+    public function getisPremium() {
+
+        return $this->isPremium;
+    }
     /**
      * Get the value of id
      */ 

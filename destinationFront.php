@@ -5,20 +5,22 @@ require_once("./utils/connexion.php");
 require_once("./class/DestinationManager.php");
 require_once("./class/ReviewManager.php");
 
-$reviews = new ReviewManager($bdd); 
+$reviews = new ReviewManager($db); 
 $reviews->showMessage();
-// $reviews->insertReview($data);
 
 if(isset($_POST['author']) && !empty($_POST['author']) &&
 isset($_POST['message']) && !empty($_POST['message']));
 
-var_dump($_POST['message'], $_POST['author']);
+$newDestinations = new DestinationManager($db);
+$topDestinations  = $newDestinations->findAllLocations();
 
-$createReviews = new ReviewManager($bdd); 
-$createReviews->insertReview($_POST);
+$destinations = [];
+
+// $createReviews = new ReviewManager($db); 
+// $createReviews->insertReview($_POST['message']);
 
 
-// var_dump($reviews->showMessage());
+
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +34,13 @@ $createReviews->insertReview($_POST);
 </head>
 
 <body class="destination">
-    <h1 class="text-center">Roma</h1>
+    
+    <h1 class="text-center"><?php echo ($_POST['custId']);?></h1>
 
     <div class="main-content">
         <div class="card_destination">
         <div class="card-image">
-            <img src="./img/Rome.jpg">
+            <img src=" ./img/<?php echo ($_POST['custId']); ?>.jpg">
         </div>
         <div class="card-text">
             <p class="card-meal-type"></p>
@@ -56,7 +59,7 @@ $createReviews->insertReview($_POST);
           <?php } ?><!-- Add more comments as needed -->
             <form class="destination_comment" action="" method="POST">
                 <label>Votre Prenom</label>
-                <input type="text" name="author" value=" <?php $createReview->insertReview() ?> ">
+                <input type="text" name="author" value="">
             <textarea class="comment" name="message">Type your comment here.</textarea>
                 <br>
              

@@ -482,3 +482,11 @@ img {
 .reviews .destination_comment {
   margin-top: 10px; /* Adjust the margin between the comments and the form */
 }
+
+.redirection {
+  width: 100px; 
+  height: 100px; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
