@@ -5,7 +5,7 @@ require_once('./utils/connexion.php');
 
 
 // Creations des objets review
-$newreviews = new ReviewManager($bdd);
+$newreviews = new ReviewManager($db);
 $reviews = $newreviews->showMessage();
 
 $Allreviews = [];
@@ -15,8 +15,9 @@ foreach ($reviews as $review) {
 }
 
 // Creation des objets touroperator
-$newtop = new TourOperatorManager($bdd);
+$newtop = new TourOperatorManager($db);
 $Alloperators = $newtop->showOperator();
+$operator->
 
 $operators = [];
 
@@ -30,26 +31,21 @@ foreach ($operators as $operator) {
 }
 
 // Creation objets destination
-$newDestinations = new DestinationManager($bdd);
+$newDestinations = new DestinationManager($db);
 $topDestinations  = $newDestinations->findAllLocations();
-// var_dump($topDestinations);
 
-// var_dump($topDestinations);
 $destinations = [];
 
 
-// foreach ($topDestinations as $topDestination) {
-
-//     $destinations[] = new Destination($topDestination);
-// }
 
 
 if (isset($_POST['destination']) && !empty($_POST['destination'])) {
     // $selectDestination sert a retrouver une destination pour tout les operateur
     // c'est un tableaux simple
     $selectDestination = $newDestinations->distinctLocation($_POST['destination']);
-    // var_dump($selectDestination);
+ 
 }
+
 
 
 

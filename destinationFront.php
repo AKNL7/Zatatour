@@ -5,7 +5,7 @@ require_once("./utils/connexion.php");
 require_once("./class/DestinationManager.php");
 require_once("./class/ReviewManager.php");
 
-$reviews = new ReviewManager($bdd); 
+$reviews = new ReviewManager($db); 
 $reviews->showMessage();
 // $reviews->insertReview($data);
 
@@ -14,7 +14,7 @@ isset($_POST['message']) && !empty($_POST['message']));
 
 var_dump($_POST['message'], $_POST['author']);
 
-$createReviews = new ReviewManager($bdd); 
+$createReviews = new ReviewManager($db); 
 $createReviews->insertReview($_POST);
 
 
