@@ -25,4 +25,6 @@ class TourOperatorManager
         }
         return $operators;
     }
+
+    
 }
