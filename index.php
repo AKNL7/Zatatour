@@ -100,8 +100,7 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
                             <div class="card_content">
                                 <h2 class="card_title"><?php echo $destination->getLocation();  ?></h2>
                                 <div class="card_text">
-                                    <p>Dig into the freshest veggies of the season! This salad-in-a-jar features a mixture of
-                                        leafy greens and seasonal vegetables, fresh from the farmer's market.
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat ut et provident totam. Quae, reprehenderit.
                                     </p>
                                     <hr />
 

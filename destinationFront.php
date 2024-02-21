@@ -44,8 +44,8 @@ $destinations = [];
         </div>
         <div class="card-text">
             <p class="card-meal-type"></p>
-            <h2 class="card-title">La Bella Roma</h2>
-            <p class="card-body">Eggs Benedict with hollandaise sauce, crispy bacon and an assortment of garden herbs.</p>
+            <h2 class="card-title">Bienvenue à <?php echo ($_POST['custId']);?></h2>
+            <p class="card-body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus earum nulla, odit nesciunt est ab autem dolorum molestiae esse alias.</p>
         </div>
         <div class="card-price">1650€</div>
     </div>
