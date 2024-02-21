@@ -24,15 +24,21 @@ if (
 
     
 
-    // select toute les review
-    // $reviews->showMessage();
-    // var_dump($reviews->showMessage());
-
-    // insert des review
+ 
     $reviews->insertReview($_POST);
 
    
 };
+
+$newTo = new TourOperatorManager($db);
+
+
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +64,7 @@ if (
             <h2 class="card-title">Bienvenue à <?php echo ($_POST['custId']);?></h2>
             <p class="card-body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus earum nulla, odit nesciunt est ab autem dolorum molestiae esse alias.</p>
         </div>
-        <div class="card-price">1650€</div>
+      
     </div>
 
         </div>
@@ -70,7 +76,7 @@ if (
         <?php } ?><!-- Add more comments as needed -->
         <form class="destination_comment" action="" method="POST">
             <label>Votre Prenom</label>
-            <!-- <input type="text" name="author" value=" <?php $createReview->insertReview() ?> "> -->
+            <input type="text" name="author" value="">
             <textarea class="comment" name="message">Type your comment here.</textarea>
             <br>
 
@@ -79,7 +85,7 @@ if (
     </div>
     </div>
 
-    <!-- <div class="to_table">
+    <div class="to_table">
     <div class="pricing-box-container">
             <div class="pricing-box text-center">
                 <h5>Fram</h5>
@@ -92,7 +98,7 @@ if (
                 </ul>
                 <button class="btn-primary">Link</button>
             </div>
-        </div> -->
+        </div>
 
     <div class="pricing-box-container">
         <div class="pricing-box text-center">

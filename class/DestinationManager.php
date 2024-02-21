@@ -57,4 +57,6 @@ class DestinationManager
         return $arrayObject;
     }
    
+  
 }
+

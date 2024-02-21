@@ -53,4 +53,5 @@ class ReviewManager
         $request = $this->db->query("SELECT * FROM `review` WHERE tour_operator_id = :tour_operator_id");
         return $request->fetchAll();
     }
+
 }
