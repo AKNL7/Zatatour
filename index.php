@@ -82,15 +82,10 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
 
 
     <section class="cards_group">
-
-
-
-
-
-
-
         <div class="main">
             <?php foreach ($newDestinations->distinctLocation() as $destination) { ?>
+
+                
                 <ul class="cards">
                     <li class="cards_item">
                         <div class="card">
@@ -102,7 +97,7 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
                                 <h2 class="card_title"><?php echo $destination->getLocation();  ?></h2>
                                 <div class="card_text">
                                     <p>Dig into the freshest veggies of the season! This salad-in-a-jar features a mixture of
-                                        leafy greens and seasonal vegetables, fresh from the farmer's market.
+                                        
                                     </p>
                                     <hr />
                                     <p>Served with your choice of dressing on the side: <strong>housemade ranch</strong>, <strong>cherry balsamic
@@ -115,10 +110,16 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
                         </div>
                     </li>
 
-                </ul>
-            <?php } ?>
+                </ul> 
+               <form action="./destinationFront.php" method="post">
+                <input type="hidden" name="location" value="<?php echo $destination->getLocation();  ?>">
+                <input type="submit" value="Submit">
+                </form>
+                
+            <?php  } ?>
         </div>
     </section>
+
 </body>
 
 </html>
