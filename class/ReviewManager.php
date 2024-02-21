@@ -9,12 +9,10 @@ class ReviewManager
     private PDO $db;
 
 
-
-
     public function __construct($db)
 
     {
-       $this->db = $db; 
+        $this->db = $db;
     }
 
 
@@ -22,7 +20,6 @@ class ReviewManager
     {
         $request = $this->db->query("SELECT * FROM review");
         return $request->fetchAll();
-        
     }
 
     public function showAuthor()
@@ -34,17 +31,26 @@ class ReviewManager
     public function showOperatorId()
     {
         $request = $this->db->query("SELECT tour_operator_id FROM review ");
-       return $request->fetchAll();
+        return $request->fetchAll();
     }
 
-    public function insertReview($data) {
+    public function insertReview($data)
+    {
+      
         $request = $this->db->prepare('INSERT INTO review ("message", author, tour_operator_id) VALUES (":message", :author, :tour_operator_id)');
 
         $request->execute([
-            ':message' => $_POST['message'],
-            ':author' => $_POST['author'],
-            ':tour_operator_id' => $_POST['tour_operator_id']
-            
+            ':message' => $data['message'],
+            ':author' => $data['author'],
+            ':tour_operator_id' => $data['tour_operator_id']
+
         ]);
+    }
+
+    public function getReviewByOperatorId($tour_operator_id)
+
+    {
+        $request = $this->db->query("SELECT * FROM `review` WHERE tour_operator_id = :tour_operator_id");
+        return $request->fetchAll();
     }
 }
