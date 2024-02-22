@@ -36,6 +36,7 @@ class DestinationManager
     }
 
     public function getOperatorInfo($location)
+    
     {
         $request = $this->db->prepare("SELECT * FROM destination WHERE location = :location");
         $request->execute([

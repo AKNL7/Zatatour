@@ -34,9 +34,14 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
     $selectDestination = $newDestinations->distinctLocation($_POST['destination']);
 }
 
+if (isset($_POST['custId']) && !empty($_POST['custId'])) {
+    // creation d'une instance 
+        
+         // selectioner des review avec les tour operator
+        // $reviews->getReviewByOperatorId();
+    }
 
-
-
+   
 ?>
 
 <!DOCTYPE html>
@@ -89,11 +94,11 @@ if (isset($_POST['destination']) && !empty($_POST['destination'])) {
                     <li class="cards_item">
                         <div class="card">
                             <div class="card_image">
-                                <img src="./img/zatatoyur.jpg" alt="mixed vegetable salad in a mason jar." />
+                                <img src= <img src=" ./img/<?php echo $travel->getLocation(); ?>.jpg" alt="travel"/>
                                 <span class="card_price"><span>$</span>9</span>
                             </div>
                             <div class="card_content">
-                                <h2 class="card_title"><?php echo $destination->getLocation();  ?></h2>
+                                <h2 class="card_title">  </h2>
                                 <div class="card_text">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat ut et provident totam. Quae, reprehenderit.
                                     </p>
