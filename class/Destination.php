@@ -5,7 +5,7 @@ class Destination
     private int $id; 
     private string $location; 
     private int $price; 
-    private int $tourOperatorId; 
+    private int $tourOperatorId;
 
     
     public function __construct($data) 

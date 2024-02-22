@@ -42,4 +42,6 @@ class TourOperatorManager
     {
          return new TourOperator($data);
     }
+
+    
 }
