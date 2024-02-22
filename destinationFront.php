@@ -7,8 +7,8 @@ require_once("./utils/connexion.php");
 
 // je recupere une destination name
 
-
 $newdestination = new DestinationManager($db);
+
 
 // je recupere les operateur par rapport a une a une location
 $voyages =$newdestination->getOperatorInfo($_POST['custId']);
@@ -51,15 +51,6 @@ if (
     echo "sa marche";
 
     
-
-    // select toute les review
-    // $reviews->showMessage();
-    // var_dump($reviews->showMessage());
-
-    // insert des review
-    // $reviews->insertReview($_POST);
-
-   
 };
 
 
@@ -114,34 +105,28 @@ if (
     </div>
 
     <div class="to_table">
+        <?php foreach($voyages as $voyage) {?>
     <div class="pricing-box-container">
+  
             <div class="pricing-box text-center">
-                <h5>Fram</h5>
-                <p class="price"><sup>€</sup>1000<sub></sub></p>
+          
+                <h5></h5>
+        
+                <p class="price"><sup>€</sup><sub><?php echo $voyage->getPrice() ?></sub></p>
                 <ul class="features-list">
                     <li><strong>Votre Note</strong> <sub></sub></li>
                     <li><strong>Note Total</strong></li>
-                    <li><strong>Premium Operator</strong><a href=""></a> </li>
+                    <li><strong></strong><a href=""></a> </li>
 
                 </ul>
                 <button class="btn-primary">Link</button>
             </div>
         </div>
-
-    <div class="pricing-box-container">
-        <div class="pricing-box text-center">
-            <h5>Fram</h5>
-            <p class="price"><sup>€</sup>1000<sub></sub></p>
-            <ul class="features-list">
-                <li><strong>Votre Note</strong> <sub></sub></li>
-                <li><strong>Note Total</strong></li>
-                <li><strong>Premium Operator</strong><a href=""></a> </li>
-
-            </ul>
-            <button class="btn-primary">Link</button>
-        </div>
+       <?php }?>
     </div>
-    </div>
+
+   
+    
 </body>
 
 </html>
