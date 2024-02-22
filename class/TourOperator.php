@@ -15,23 +15,19 @@ class TourOperator{
             $this->id = $data['id'];
         }
         if (isset($data['name'])) {
-            $this->id = $data['name'];
+            $this->name = $data['name'];
         }
         if (isset($data['grade_count'])) {
-            $this->id = $data['grade_count'];
+            $this->gradeCount = $data['grade_count'];
         }
         if (isset($data['grade_total'])) {
-            $this->id = $data['grade_total'];
+            $this->gradeTotalprivate = $data['grade_total'];
         }
         if (isset($data['is_premium'])) {
-            $this->id = $data['is_premium'];
+            $this->isPremium = $data['is_premium'];
         }
     
     }
-
-
-
-
 
 
     /**

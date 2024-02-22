@@ -6,19 +6,29 @@ require_once("./utils/connexion.php");
 // je dois afficher les touroperator par rapport a une destination ::::::
 
 // je recupere une destination name
-var_dump($_POST['custId']);
+
+
 $newdestination = new DestinationManager($db);
 
 // je recupere les operateur par rapport a une a une location
 $voyages =$newdestination->getOperatorInfo($_POST['custId']);
-var_dump($voyages);
+
 
 $operators =[];
 $newoperator = new TourOperatorManager($db);
+
 foreach ($voyages as $voyage) {
-    $operators[] = $newoperator->getNameById($voyage->getTourOperatorId());
+    // $operators[] = $newoperator->getNameById($voyage->getTourOperatorId());
+$holiday = $voyage->getTourOperatorId();
+
+
+
+$operatorsHoliday = $newoperator->getNameById($holiday);
+var_dump($operatorsHoliday);
 
 }
+
+
 
 
 

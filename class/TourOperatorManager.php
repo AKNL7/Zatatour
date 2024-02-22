@@ -17,19 +17,29 @@ class TourOperatorManager
     }
 
     public function getNameById($byId)
-        {
-            $request = $this->db->query("SELECT name FROM tour_operator WHERE id = $byId");
-            return $this->hydrate($request->fetch());
-        }
-    
+    {
+        $request = $this->db->prepare("SELECT * FROM tour_operator WHERE id = :id");
+        $request->execute([
+            ':id' => $byId
+        ]);
+
+        $donnee = $request->fetch();
+
+        return $this->hydrateOne($donnee);
+    }
+
 
     public function hydrate(array $data)
     {
         $operators = [];
         foreach ($data as $operator) {
-            var_dump($operator);
             $operators[] = new TourOperator($operator);
         }
         return $operators;
+    }
+
+    public function hydrateOne($data)
+    {
+         return new TourOperator($data);
     }
 }
