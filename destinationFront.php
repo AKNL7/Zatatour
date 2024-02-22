@@ -28,17 +28,11 @@ var_dump($operatorsHoliday);
 
 }
 
-
-
-
-
 $newAdminManager = new AdminManager($db);
 // $k = $newAdminManager->checkOperatorId();
 
 $reviews = new ReviewManager($db);
 // instance de aminmanager
-
-
 
 if (isset($_POST['custId']) && !empty($_POST['custId'])) {
 // creation d'une instance 
