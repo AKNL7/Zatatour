@@ -31,7 +31,7 @@ class AdminManager
 
         $request = $this->db->prepare('SELECT * FROM tour_operator WHERE name = :name');
         $request->execute([
-            'name' => $operatorName
+            ':name' => $operatorName
         ]);
         return $request->fetch();
     }

@@ -25,23 +25,6 @@ $topDestinations  = $newDestinations->findAllLocations();
 
 $destinations = [];
 
-
-
-
-if (isset($_POST['destination']) && !empty($_POST['destination'])) {
-    // $selectDestination sert a retrouver une destination pour tout les operateur
-    // c'est un tableaux simple
-    $selectDestination = $newDestinations->distinctLocation($_POST['destination']);
-}
-
-if (isset($_POST['custId']) && !empty($_POST['custId'])) {
-    // creation d'une instance 
-        
-         // selectioner des review avec les tour operator
-        // $reviews->getReviewByOperatorId();
-    }
-
-   
 ?>
 
 <!DOCTYPE html>
@@ -66,39 +49,20 @@ if (isset($_POST['custId']) && !empty($_POST['custId'])) {
 
     </header>
 
-    <h3> TOP DESTINATION</h3>
-
-    <!-- quand je clique sur envoyer en methode post le formulaire envoie id du voyage select -->
-
-    <form action="" method="post">
-        <label for="destination">DESTINATION : </label>
-
-        <select name="destination" id="destination">
-            <!-- <option value="">--Vers quel destination voulez-vous allez--</option> -->
-            <?php foreach ($newDestinations->distinctLocation() as $destination) {
-            ?> <option value="<?php echo $destination->getLocation(); ?>">
-                    <?php echo $destination->getLocation(); ?> </option>
-            <?php } ?>
-        </select>
-        <button type="submit">Envoyer</button>
-    </form>
-    </header>
-
-
     <section class="cards_group">
         <div class="main">
-            <?php foreach ($newDestinations->distinctLocation() as $destination) { ?>
 
+            <?php foreach ($newDestinations->distinctLocation() as $destination) { ?>
 
                 <ul class="cards">
                     <li class="cards_item">
                         <div class="card">
                             <div class="card_image">
-                                <img src= <img src=" ./img/<?php echo $travel->getLocation(); ?>.jpg" alt="travel"/>
+                                <img src="./img/zatatoyur.jpg">
                                 <span class="card_price"><span>$</span>9</span>
                             </div>
                             <div class="card_content">
-                                <h2 class="card_title">  </h2>
+                                <h2 class="card_title"> <?= $destination->getLocation(); ?> </h2>
                                 <div class="card_text">
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat ut et provident totam. Quae, reprehenderit.
                                     </p>
